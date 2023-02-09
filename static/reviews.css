@@ -1,0 +1,39 @@
+.reviews {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.reviews ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reviews li {
+    margin-top: 1vw;
+    border-bottom: 2px solid #08bd00;
+    padding: 1vw;
+}
+
+.reviews li:last-child {
+    margin-bottom: 20vh;
+}
+
+.reviews .head-reviews p {
+    margin-top: 1vw;
+}
+
+.reviews .head-reviews {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h2 {
+    text-align: center;
+    margin: 20vh 0;
+}

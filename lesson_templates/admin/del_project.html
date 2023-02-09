@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Delete projects</title>
+<link rel="stylesheet" href="/static/admin_del.css">
+{% endblock %}
+
+{% block main %}
+{% include '/include/admin_header.html' %}
+<main>
+
+    {% for alert in get_flashed_messages() %}
+    <div class="alert" style="background-color: {{ alert[1] }}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        {{ alert[0] }}
+    </div>
+    {% endfor %}
+
+    <div class="form">
+        {% if projects %}
+        <h2>Select a project to delete.</h2>
+        {% for project in projects %}
+        <form action="/admin/del-projects" method="post">
+            <input type="hidden" value="{{ project[0] }}" name='id'>
+            <h3>{{ project[1] }}</h3><button type="submit"><span class="closebtn">×</span></button>
+        </form>
+        {% endfor %}
+        {% else %}
+        <h2 style="text-align: center; margin: 5vw 0 ">Not found projects</h2>
+        {% endif %}
+
+
+    </div>
+</main>
+
+{% endblock %}

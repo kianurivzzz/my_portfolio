@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Reviews</title>
+<link rel="stylesheet" href="/static/admin_add.css">
+<link rel="stylesheet" href="/static/reviews.css">
+{% endblock %}
+
+{% block main %}
+<main>
+
+    {% for alert in get_flashed_messages() %}
+    <div class="alert" style="background-color: {{ alert[1] }}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        {{ alert[0] }}
+    </div>
+    {% endfor %}
+
+    <div class="form">
+        <form action="/reviews" method="post">
+            <ul>
+                <li><label for="">Enter your name: </label><input type="text" name="author"></li>
+                <li><label for="">Enter the text of your review: </label><textarea type="text" cols="40" rows="5"
+                        name="text"></textarea></li>
+                <li><label for="">Enter your email: </label><input type="email" name="email"></li>
+                <li><button type="submit">CONFIRM</button></li>
+            </ul>
+        </form>
+    </div>
+
+    <div class="reviews">
+        <ul>
+            {% if reviews %}
+            {% for review in reviews %}
+            <li>
+                <div class="head-reviews">
+                    <h3>{{ review[2] }}</h3>
+                    <p>{{ review[4] }}</p>
+                </div>
+                <p> {{ review[1] }}</p>
+            </li>
+            {% endfor %}
+            {% else %}
+            <h2>Be the first to leave a review!</h2>
+            {% endif %}
+        </ul>
+    </div>
+</main>
+{% endblock %}

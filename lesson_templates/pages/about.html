@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About me</title>
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="about-page-content">
+        <img src="programmer2.png" alt="">
+        <h1>About me</h1>
+        <h3>Here is a brief information about me</h3>
+        <p class="skills">Developing as a teacher and attack cybersecurity specialist. I have experience as an
+            instructor and am now
+            launching my own free courses.
+            I work with people of all ages without any problems. I know how to hear and understand. Not afraid to work
+            with large numbers of students.
+            I am familiar with conference/webinar/broadcasting platforms and know how to work with them. Telling
+            material confidently and understandably.
+            Completed a penetration testing course and successfully defended a project paper,
+            I am confident working with Windows, Linux, Android and IOS systems, I know how and know how to conduct
+            security audit (white box, grey box, black box),
+            I know how to work with the tools, I understand current CVE. Also took a course and got acquainted with
+            Python, HTML5, CSS3.
+            I know them more than at a basic level, I can confidently write code. I often read technical literature,
+            attend courses and intensive courses,
+            I don't stand still and develop. I develop and pump up my home-project "voice assistant". My GitHub is
+            https://github.com/kianurivzzz .
+            I have all the social and working soft skills. I study remotely at the IT department. My hobbies are:
+            mountain hiking, skiing and reading books.
+        </p>
+        <h3>My skills</h3>
+        <p>
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JS</span>
+            <span class="skill">Fast print speed</span>
+            <span class="skill">1С</span>
+            <span class="skill">English</span>
+            <span class="skill">Windows and Linux administration</span>
+            <span class="skill">Googling (searching for information)</span>
+            <span class="skill">Git</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Requests</span>
+            <span class="skill">Sklearn</span>
+            <span class="skill">HTTP/HTTPS/TCP/IP/DNS etc</span>
+            <span class="skill">VPN/Proxy</span>
+            <span class="skill">Zoom</span>
+            <span class="skill">Live broadcasts, webinars (YouTube, Twitch, GetResponse, Webinar.ru etc)</span>
+            <span class="skill">Organization of the educational process</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Literacy (verbal and written)</span>
+            <span class="skill">VS Code, Jet Brains tools (PyCharm, WebStorm), Sublime text etc</span>
+            <span class="skill">MS Office/G suite (Google Workspace)</span>
+            <span class="skill">CMS Wordpress</span>
+            <span class="skill">CMS Tilda</span>
+            <span class="skill">Django</span>
+            <span class="skill">Flask</span>
+            <span class="skill">JIT</span>
+            <span class="skill">Markdown</span>
+            <span class="skill">Regex</span>
+        </p>
+
+        <div id="map" style="width:500px; height:400px"></div>
+
+    </div>
+</main>
+
+<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+<script type="text/javascript">
+    var map;
+
+    DG.then(function () {
+        map = DG.map('map', {
+            center: [44.766015, 39.868489],
+            zoom: 13,
+            defaultBackgroundColor: '#3b3b3b'
+        });
+
+        DG.marker([44.766015, 39.868489]).addTo(map).bindPopup('You clicked on me!');
+    });
+</script>
+{% endblock %}

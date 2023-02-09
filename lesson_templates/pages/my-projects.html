@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Projects</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<div class="projects-page-content">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="card">
+                        <div class="part">
+                            <h3>{{ project[1] }}</h3>
+                            <p> {{ project[2] }} </p>
+                        </div>
+                        <div class="part">
+                            <img src="../static/img/{{ project[3] }}" alt="">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2 class="no-project">Not found projects</h2>
+            {% endif %}
+        </div>
+	</main>
+{% endblock %}

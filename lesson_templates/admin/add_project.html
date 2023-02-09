@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add projects</title>
+<link rel="stylesheet" href="/static/admin_add.css">
+{% endblock %}
+
+{% block main %}
+{% include '/include/admin_header.html' %}
+<main>
+
+    {% for alert in get_flashed_messages() %}
+    <div class="alert" style="background-color: {{ alert[1] }}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        {{ alert[0] }}
+    </div>
+    {% endfor %}
+
+    <div class="form">
+        <form action="/admin/add-projects" method="post" enctype="multipart/form-data">
+            <ul>
+                <li><label for="">Enter a name for your project: </label><input type="text" name="title"></li>
+                <li><label for="">Enter a decription for your project: </label><textarea type="text" cols="40" rows="5"
+                        name="description"></textarea></li>
+                <li><label for="">Upload your image: </label><input type="file" name="file"></li>
+                <li><button type="submit">CONFIRM</button></li>
+            </ul>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

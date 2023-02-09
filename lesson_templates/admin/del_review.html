@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Delete reviews</title>
+<link rel="stylesheet" href="/static/admin_del.css">
+{% endblock %}
+
+{% block main %}
+{% include "/include/admin_header.html" %}
+
+<main>
+    {% for alert in get_flashed_messages() %}
+    <div class="alert" style="background-color: {{ alert[1] }}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        {{ alert[0] }}
+    </div>
+    {% endfor %}
+
+    <div class="form">
+        {% if reviews %}
+        <h2>Select a reviews to delete.</h2>
+        {% for rev in reviews %}
+        <form action="/admin/del-reviews" method="post">
+            <input type="hidden" value="{{ rev[0] }}" name='id'>
+            <h3>{{ rev[1] }}</h3><button type="submit"><span class="closebtn">×</span></button>
+        </form>
+        {% endfor %}
+        {% else %}
+        <h2 style="text-align: center; margin: 5vw 0 ">Not found reviews</h2>
+        {% endif %}
+
+    </div>
+</main>
+
+{% endblock %}
